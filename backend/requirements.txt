@@ -1,0 +1,45 @@
+# CoalSpark Restaurant Backend Dependencies
+# Install with: pip install -r requirements.txt
+
+# Web Framework
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+
+# Database
+sqlalchemy==2.0.30
+alembic==1.13.1
+psycopg2-binary==2.9.9
+
+# Validation
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# Authentication - Fixed versions for Windows compatibility
+python-jose[cryptography]==3.3.0
+passlib==1.7.4
+bcrypt==4.0.1  # Compatible version with passlib
+
+# File Uploads
+python-multipart==0.0.9
+pillow==11.3.0
+aiofiles==23.2.1
+
+# Utilities
+python-dotenv==1.0.1
+
+# Payments
+razorpay==2.0.1
+
+# ========================================
+# ⚠️ WINDOWS USERS - READ THIS FIRST ⚠️
+# ========================================
+# If you get "greenlet build error" during installation:
+# 
+# 1. Install greenlet via conda (pre-compiled):
+#    conda install greenlet -c conda-forge
+#
+# 2. Then install other requirements:
+#    pip install -r requirements.txt
+#
+# This avoids the need for Microsoft Visual C++ Build Tools
+# ========================================

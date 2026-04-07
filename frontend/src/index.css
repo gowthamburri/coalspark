@@ -1,0 +1,159 @@
+/* ── Google Font ──────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ────────────────────────────────────────────────────────── */
+:root {
+  --coal: #0f0f0f;
+  --coal-light: #1a1a1a;
+  --coal-mid: #222222;
+  --ember: #ff6b00;
+  --ember-dark: #ea580c;
+  --ember-light: #ff8c33;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --border: rgba(255, 107, 0, 0.15);
+}
+
+/* ── Base reset ───────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--coal);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff6b00;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* ── Selection ────────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(255, 107, 0, 0.3);
+  color: #fff;
+}
+
+/* ── Utility layer ────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-ember-500 hover:bg-ember-600 text-white font-semibold
+           px-6 py-3 rounded-lg transition-all duration-200
+           hover:shadow-ember active:scale-95 disabled:opacity-50
+           disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply border border-ember-500 text-ember-500 hover:bg-ember-500
+           hover:text-white font-semibold px-6 py-3 rounded-lg
+           transition-all duration-200 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-gray-400 hover:text-white hover:bg-ash-100
+           font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-ash-100 border border-white/5 rounded-2xl
+           shadow-card hover:shadow-card-hover transition-all duration-300;
+  }
+
+  /* Form inputs */
+  .input-field {
+    @apply w-full bg-ash-200 border border-white/10 text-white
+           rounded-lg px-4 py-3 outline-none placeholder-gray-500
+           focus:border-ember-500 focus:ring-1 focus:ring-ember-500/30
+           transition-all duration-200;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5
+           rounded-full text-xs font-medium;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply text-3xl font-bold text-white;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 mt-2;
+  }
+
+  /* Shimmer loading skeleton */
+  .skeleton {
+    @apply bg-ash-100 rounded-lg animate-shimmer;
+    background: linear-gradient(
+      90deg,
+      #1e1e1e 25%,
+      #2a2a2a 50%,
+      #1e1e1e 75%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* Ember divider */
+  .ember-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-ember-500 to-transparent;
+  }
+
+  /* Spice indicator dots */
+  .spice-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+}
+
+/* ── Page transition ──────────────────────────────────────────────────────── */
+.page-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Ember glow effect on cards ───────────────────────────────────────────── */
+.glow-on-hover {
+  transition: box-shadow 0.3s ease;
+}
+.glow-on-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.2);
+}
+
+/* ── React Hot Toast override ─────────────────────────────────────────────── */
+.toast-dark {
+  background: #1e1e1e !important;
+  color: #f5f5f5 !important;
+  border: 1px solid rgba(255,107,0,0.2) !important;
+}
